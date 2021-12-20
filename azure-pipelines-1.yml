@@ -22,4 +22,5 @@ steps:
   inputs:
     connectionSource: 'jfrogPlatformConnection'
     jfrogPlatformConnection: 'ecosys platform'
-    command: 'install'
+    watchesSource: 'project'
+    project: 'ecosys'
