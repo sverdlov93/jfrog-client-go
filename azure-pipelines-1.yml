@@ -24,3 +24,4 @@ steps:
     jfrogPlatformConnection: 'ecosys platform'
     watchesSource: 'project'
     project: 'ecosys'
+    allowFailBuild: true
