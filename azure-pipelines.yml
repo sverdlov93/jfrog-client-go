@@ -48,7 +48,7 @@ steps:
     buildNumber: '$(Build.BuildNumber)'
     targetRepo: 'cli-debian-1643209358'
     status: 'Released'
-    sourceRepo: '$(KKKKKS)'
+    sourceRepo: '''$(KKKKKS)'''
     includeDependencies: false
     copy: false
     dryRun: false
