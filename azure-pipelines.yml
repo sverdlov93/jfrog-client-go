@@ -17,3 +17,39 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+
+- task: ArtifactoryDocker@1
+  inputs:
+    command: 'pull'
+    artifactoryService: 'arti old'
+    sourceRepo: 'docker-virtual'
+    imageName: 'ecosysjfrog-docker-virtual.jfrog.io/redhat/ubi8-micro'
+
+- task: ArtifactoryDocker@1
+  inputs:
+    command: 'push'
+    artifactoryService: 'arti old'
+    targetRepo: 'docker-virtual'
+    imageName: 'ecosysjfrog-docker-virtual.jfrog.io/redhat/ubi8-micro'
+    collectBuildInfo: true
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
+    
+- task: ArtifactoryPublishBuildInfo@1
+  inputs:
+    artifactoryService: 'arti old'
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
+
+- task: ArtifactoryBuildPromotion@1
+  inputs:
+    artifactoryService: 'arti old'
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
+    targetRepo: 'cli-debian-1643209358'
+    status: 'Released'
+    sourceRepo: '$(KKKKKS)'
+    includeDependencies: false
+    copy: false
+    dryRun: false
+    
