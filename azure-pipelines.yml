@@ -46,9 +46,9 @@ steps:
     artifactoryService: 'arti old'
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
-    targetRepo: 'cli-debian-1643209358'
+    targetRepo: 'Generic-local-or'
     status: 'Released'
-    sourceRepo: '''$(KKKKKS)'''
+    sourceRepo: "$(ARTIFACTORY_DOCKER_REPO_PULL_NAME)"
     includeDependencies: false
     copy: false
     dryRun: false
